@@ -16,6 +16,7 @@
 <body>
     <h1>Budgtr</h1>
     <div class="container">
+        <% let total = 0; %>
         <table>
             <% for(let i = 0; i < budgets.length; i++){%>
             <tr>
@@ -26,17 +27,26 @@
                     <a href="/budgets/<%= i %>"><%= budgets[i].name %></a>
                 </td>
                 <td>
-                    <%= budgets[i].name %>
-                </td>
-                <td>
                     <%= budgets[i].from %>
                 </td>
                 <td>
-                    Total: <%= budgets[i].amount %>
+                    Amount: <%= budgets[i].amount %>
                 </td>
             </tr>
             <% } %>
+            
+            <% if( total < 0) { %>
+                <p style="margin: 0px; background-color: red;"> Total: $<%= total %></p>
+            <% } %>
+            <% if( total > 1000) { %>
+                <p style="margin: 0px; background-color: green;">Total: $<%= total %></p>
+            <% } %>
+            <% if(total > 0 && total < 1000){ %>
+                <p style="margin:0px;">Total: $<%= total %></p>
+            <%  } %>
         </table>
+        <button onclick = "window.location.href='http://localhost:4000/budgets/new';">New</button></tr>
+
     </div>
 </body>
 </html>
