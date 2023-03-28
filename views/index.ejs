@@ -13,12 +13,14 @@
         }
     </style>
 </head>
+<% console.log(budgets) %>
 <body>
     <h1>Budgtr</h1>
     <div class="container">
         <% let total = 0; %>
         <table>
-            <% for(let i = 0; i < budgets.length; i++){%>
+            <% for(let i = 0; i < budgets.length; i++) {%>
+                <% total += budgets[i].amount %>
             <tr>
                 <td>
                     <%= budgets[i].date %>
